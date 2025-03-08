@@ -1,0 +1,21 @@
+{
+  "404": {
+    "button": "Back to homepage",
+    "legend": "Oh no! Error 404",
+    "subtitle": "This page doesn't exist or was removed! We suggest you go back to the homepage"
+  },
+  "500": {
+    "button": "Back to homepage",
+    "legend": "The connection has timed out",
+    "subtitle": "There was a problem during the request process. Please try again later"
+  },
+  "Home": {
+    "search": "Search a character",
+    "results": "{value, plural, one {1 result} other {# results}}",
+    "name": "Name",
+    "favorites": "Favorites"
+  },
+  "Detail": {
+    "comics": "Comics"
+  }
+}

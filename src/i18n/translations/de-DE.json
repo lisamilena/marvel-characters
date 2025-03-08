@@ -1,0 +1,21 @@
+{
+  "404": {
+    "button": "Zurück zur Startseite",
+    "legend": "Oh nein! Fehler 404",
+    "subtitle": "Diese Seite existiert nicht oder wurde entfernt! Wir empfehlen Ihnen, zur Startseite zurückzukehren"
+  },
+  "500": {
+    "button": "Zurück zur Startseite",
+    "legend": "Die Verbindung ist abgelaufen",
+    "subtitle": "Während des Anforderungsprozesses ist ein Problem aufgetreten. Bitte versuchen Sie es später erneut"
+  },
+  "Home": {
+    "search": "Einen Charakter suchen",
+    "results": "{value, plural, one {1 Ergebnis} other {# Ergebnisse}}",
+    "name": "Name",
+    "favorites": "Favoriten"
+  },
+  "Detail": {
+    "comics": "Comics"
+  }
+}

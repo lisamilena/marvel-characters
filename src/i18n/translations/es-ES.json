@@ -1,0 +1,21 @@
+{
+  "404": {
+    "button": "Volver a la página principal",
+    "legend": "¡Oh no! Error 404",
+    "subtitle": "¡Esta página no existe o fue eliminada! Te sugerimos que vuelvas a la página principal"
+  },
+  "500": {
+    "button": "Volver a la página principal",
+    "legend": "La conexión ha expirado",
+    "subtitle": "Hubo un problema durante el proceso de solicitud. Por favor, inténtalo de nuevo más tarde"
+  },
+  "Home": {
+    "search": "Buscar un personaje",
+    "results": "{value, plural, one {1 resultado} other {# resultados}}",
+    "name": "Nombre",
+    "favorites": "Favoritos"
+  },
+  "Detail": {
+    "comics": "Cómics"
+  }
+}
