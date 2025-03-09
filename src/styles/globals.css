@@ -26,3 +26,26 @@ body {
 .cut-corner {
   clip-path: polygon(0% 0%, 100% 0%, 100% calc(100% - 13px), calc(100% - 13px) 100%, 0 100%);
 }
+
+.mask {
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-size: contain;
+
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  -webkit-mask-size: contain;
+}
+.animated-bg:hover .mask {
+  background: #fff;
+}
+.heart {
+  mask-image: url('/heart.svg');
+  -webkit-mask-image: url('/heart.svg');
+  background: #ec1d24;
+}
+.heart-empty {
+  mask-image: url('/heart-empty.svg');
+  -webkit-mask-image: url('/heart-empty.svg');
+  background: #fff;
+}

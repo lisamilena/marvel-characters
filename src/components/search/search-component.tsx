@@ -6,20 +6,27 @@ import { useTranslations } from 'next-intl';
 
 import styles from './search.module.css';
 
-const DEBOUNCE_TIME = 3000;
+const DEBOUNCE_TIME = 1500;
 
-export function Search() {
+export function Search({
+  value = '',
+  results,
+  onFilter,
+}: {
+  value?: string;
+  results: number | undefined;
+  onFilter: (query: string) => void;
+}) {
   const t = useTranslations('Home');
-  const [query, setQuery] = useState('');
+  const [query, setQuery] = useState(value);
   const debounceTimeout = useRef<NodeJS.Timeout | null>(null);
 
-  const handleSearch = (event: React.KeyboardEvent<HTMLInputElement>) => {
-    if (event.key === 'Enter') {
+  const handleSearch = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === 'Enter') {
       if (debounceTimeout.current) {
         clearTimeout(debounceTimeout.current);
       }
-      // eslint-disable-next-line no-console
-      console.log(query);
+      onFilter(query);
     }
   };
 
@@ -30,10 +37,7 @@ export function Search() {
       clearTimeout(debounceTimeout.current);
     }
 
-    debounceTimeout.current = setTimeout(() => {
-      // eslint-disable-next-line no-console
-      console.log(e.target.value);
-    }, DEBOUNCE_TIME);
+    debounceTimeout.current = setTimeout(() => onFilter(e.target.value), DEBOUNCE_TIME);
   };
 
   return (
@@ -55,7 +59,7 @@ export function Search() {
           onKeyDown={handleSearch}
         />
       </div>
-      <p>{t('results', { value: 50 })}</p>
+      <p>{results !== undefined ? t('results', { value: results }) : '-'}</p>
     </div>
   );
 }

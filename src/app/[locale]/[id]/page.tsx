@@ -10,13 +10,13 @@ export default async function Detail({ params }: { params: Promise<{ id: string 
   const queryClient = new QueryClient();
   await queryClient.prefetchQuery({
     queryKey: ['character', id],
-    queryFn: () => getCharacter(id),
+    queryFn: () => getCharacter(parseInt(id)),
   });
 
   return (
     <section className="flex flex-col">
       <HydrationBoundary state={dehydrate(queryClient)}>
-        <CharacterHeader id={id} />
+        <CharacterHeader id={parseInt(id)} />
 
         <ComicsList id={id} />
       </HydrationBoundary>

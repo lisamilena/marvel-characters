@@ -4,6 +4,7 @@ import { Roboto_Condensed } from 'next/font/google';
 import { type Locale } from '@/i18n/types';
 
 import '@/styles/globals.css';
+import { GlobalLoader } from '@/components/loading/globalLoading-component';
 
 const font = Roboto_Condensed({
   weight: ['400'],
@@ -24,7 +25,10 @@ export default async function RootLayout({ children, params }: RootLayoutProps) 
 
   return (
     <html dir="ltr" lang={locale}>
-      <body className={`${font.className} antialiased`}>{children}</body>
+      <body className={`${font.className} antialiased`}>
+        <GlobalLoader />
+        {children}
+      </body>
     </html>
   );
 }

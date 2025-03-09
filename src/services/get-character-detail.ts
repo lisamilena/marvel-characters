@@ -1,19 +1,31 @@
-import { useQuery } from '@tanstack/react-query';
-import { type CharacterType, type DataResponseType, getAuthParams } from './utils';
+import { useQueries } from '@tanstack/react-query';
+import {
+  type CharacterType,
+  type ComicResponseType,
+  type DataResponseType,
+  type FullComicType,
+  getAuthParams,
+} from './utils';
 
-type ErrorType = {
+const LIMIT_SEARCH = 30;
+
+type ErrorCharacterType = {
+  code: string;
+  message: string;
+};
+type ErrorComicType = {
   code: string;
   message: string;
 };
 
-const getCharacter = async (id: string): Promise<CharacterType> => {
+const getCharacter = async (id: number): Promise<CharacterType> => {
   const authParams = getAuthParams();
   const response = await fetch(
     `https://gateway.marvel.com/v1/public/characters/${id}?${authParams}`
   );
 
   if (!response.ok) {
-    const error = (await response.json()) as ErrorType;
+    const error = (await response.json()) as ErrorCharacterType;
     throw new Error(error.message);
   }
 
@@ -21,12 +33,32 @@ const getCharacter = async (id: string): Promise<CharacterType> => {
   return data?.data?.results?.[0];
 };
 
-// We are using useQuery to cache our data for 24h
-const useGetCharacter = (id: string) => {
-  return useQuery({
-    queryKey: ['character', id],
-    queryFn: () => getCharacter(id),
-    staleTime: 24 * 60 * 60 * 1000,
+const getComics = async (id: number): Promise<FullComicType[]> => {
+  const authParams = getAuthParams();
+  const response = await fetch(
+    `https://gateway.marvel.com/v1/public/characters/${id}/comics?${authParams}&limit=${LIMIT_SEARCH}`
+  );
+
+  if (!response.ok) {
+    const error = (await response.json()) as ErrorComicType;
+    throw new Error(error.message);
+  }
+
+  const data = (await response.json()) as ComicResponseType;
+  return data?.data?.results;
+};
+
+// Cache data for 24h
+const useGetCharacter = (id: number) => {
+  return useQueries({
+    queries: [
+      {
+        queryKey: ['character', id],
+        queryFn: () => getCharacter(id),
+        staleTime: 24 * 60 * 60 * 1000,
+      },
+      { queryKey: ['comics', id], queryFn: () => getComics(id), staleTime: 24 * 60 * 60 * 1000 },
+    ],
   });
 };
 

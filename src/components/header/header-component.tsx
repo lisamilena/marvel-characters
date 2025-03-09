@@ -1,16 +1,19 @@
+'use client';
 import Image from 'next/image';
 import Link from 'next/link';
-import { getLocale } from 'next-intl/server';
+import { twMerge } from 'tailwind-merge';
 
+import { useStoreFavorites } from '@/store/favorites';
 import { FavoriteIcon } from '../favoriteIcon/favoriteIcon-component';
 import styles from './header.module.css';
 
-export async function Header() {
-  const local = await getLocale();
+export function Header() {
+  const favorites = useStoreFavorites((state) => state.characters);
+  const { toggleShowFavorites, showFavorites } = useStoreFavorites();
 
   return (
     <header className={styles.header}>
-      <Link href={`/${local}`}>
+      <Link href="/">
         <Image
           priority
           alt="Marvel logo"
@@ -21,9 +24,8 @@ export async function Header() {
         />
       </Link>
       <div className="flex gap-2">
-        <FavoriteIcon isFilled />
-        {/* TODO: counter */}
-        <p className="text-white">1</p>
+        <FavoriteIcon isFilled onClick={toggleShowFavorites} />
+        <p className={twMerge('text-white', showFavorites && 'font-black')}>{favorites?.length}</p>
       </div>
     </header>
   );

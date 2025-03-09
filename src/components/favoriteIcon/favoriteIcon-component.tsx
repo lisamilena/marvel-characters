@@ -1,35 +1,32 @@
-import Image from 'next/image';
 import { type MouseEventHandler } from 'react';
+import { twMerge } from 'tailwind-merge';
 
 const HEART_ICON = {
-  full: '/heart.svg',
-  empty: '/heart-empty.svg',
+  full: 'heart',
+  empty: 'heart-empty',
 };
 
 const ICON_SIZES = {
-  sm: 12,
-  md: 24,
+  sm: 'w-3 h-3',
+  md: 'w-6 h-6',
 };
 
 export function FavoriteIcon({
   isFilled,
   size = 'md',
   onClick,
-  className,
 }: {
   isFilled: boolean;
   size?: 'sm' | 'md';
   onClick?: MouseEventHandler;
-  className?: string;
 }) {
   return (
-    <Image
-      priority
-      alt={isFilled ? HEART_ICON.full : HEART_ICON.empty}
-      className={className}
-      height={ICON_SIZES[size]}
-      src={isFilled ? HEART_ICON.full : HEART_ICON.empty}
-      width={ICON_SIZES[size]}
+    <button
+      className={twMerge(
+        'group mask mask-image transition-colors',
+        isFilled ? HEART_ICON.full : HEART_ICON.empty,
+        ICON_SIZES[size]
+      )}
       onClick={onClick}
     />
   );

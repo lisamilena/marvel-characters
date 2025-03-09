@@ -9,15 +9,16 @@ type ComicType = {
   }[];
   returned: number;
 };
+type ThumbnailType = {
+  path: string;
+  extension: 'jpg' | 'gif';
+};
 type CharacterType = {
   id: number;
   name: string;
   description: string;
   modified: string;
-  thumbnail: {
-    path: string;
-    extension: 'jpg' | 'gif';
-  };
+  thumbnail: ThumbnailType;
   resourceURI: string;
   comics: ComicType;
   series: unknown;
@@ -25,17 +26,59 @@ type CharacterType = {
   events: unknown;
   urls: unknown[];
 };
+type DataType<T> = {
+  offset: number;
+  limit: number;
+  total: number;
+  count: number;
+  results: T[];
+};
 type DataResponseType = {
   code: number;
   status: string;
   etag: string;
-  data: {
-    offset: number;
-    limit: number;
-    total: number;
-    count: number;
-    results: CharacterType[];
-  };
+  data: DataType<CharacterType>;
+};
+
+type FullComicType = {
+  id: number;
+  digitalId: number;
+  title: string;
+  issueNumber: number;
+  variantDescription: string;
+  description: string;
+  modified: string;
+  isbn: string;
+  upc: string;
+  diamondCode: string;
+  ean: string;
+  issn: string;
+  format: string;
+  pageCount: number;
+  textObjects: unknown;
+  resourceURI: string;
+  urls: unknown;
+  series: unknown;
+  variants: unknown;
+  collections: unknown;
+  collectedIssues: unknown;
+  dates: {
+    type: string;
+    date: string;
+  }[];
+  prices: unknown;
+  thumbnail: ThumbnailType;
+  images: unknown;
+  creators: unknown;
+  characters: unknown;
+  stories: unknown;
+  events: unknown;
+};
+type ComicResponseType = DataResponseType & {
+  copyright: string;
+  attributionText: string;
+  attributionHTML: string;
+  data: DataType<FullComicType>;
 };
 
 const getAuthParams = (): string => {
@@ -48,4 +91,4 @@ const getAuthParams = (): string => {
 };
 
 export { getAuthParams };
-export type { CharacterType, DataResponseType };
+export type { CharacterType, ComicResponseType, DataResponseType, FullComicType };

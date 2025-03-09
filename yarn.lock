@@ -4156,7 +4156,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"clsx@npm:^2.0.0":
+"clsx@npm:^2.0.0, clsx@npm:^2.1.1":
   version: 2.1.1
   resolution: "clsx@npm:2.1.1"
   checksum: 10c0/c4c8eb865f8c82baab07e71bfa8897c73454881c4f99d6bc81585aecd7c441746c1399d08363dc096c550cceaf97bd4ce1e8854e1771e9998d9f94c4fe075839
@@ -6651,6 +6651,7 @@ __metadata:
     "@types/react-dom": "npm:^19.0.3"
     "@typescript-eslint/parser": "npm:^8.23.0"
     "@vitejs/plugin-react": "npm:^4.3.4"
+    clsx: "npm:^2.1.1"
     commitlint-plugin-function-rules: "npm:^4.0.1"
     eslint: "npm:^9"
     eslint-config-next: "npm:15.1.7"
@@ -6674,10 +6675,12 @@ __metadata:
     react: "npm:^19.0.0"
     react-aria-components: "npm:^1.6.0"
     react-dom: "npm:^19.0.0"
+    tailwind-merge: "npm:^3.0.2"
     tailwindcss: "npm:^4.0.0"
     typescript: "npm:^5"
     vite-tsconfig-paths: "npm:^5.1.4"
     vitest: "npm:^3.0.8"
+    zustand: "npm:^5.0.3"
   languageName: unknown
   linkType: soft
 
@@ -8491,6 +8494,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"tailwind-merge@npm:^3.0.2":
+  version: 3.0.2
+  resolution: "tailwind-merge@npm:3.0.2"
+  checksum: 10c0/73f528345e5130e7690c5c57701155849ae4f0834e0a4bf56bc03e25d4563d45d4905ff9c487a7dce9efdfa18689a223e78365962105ad0e2f2d1226216c66ef
+  languageName: node
+  linkType: hard
+
 "tailwindcss@npm:4.0.12, tailwindcss@npm:^4.0.0":
   version: 4.0.12
   resolution: "tailwindcss@npm:4.0.12"
@@ -9153,5 +9163,26 @@ __metadata:
   version: 1.2.0
   resolution: "yocto-queue@npm:1.2.0"
   checksum: 10c0/9fb3adeba76b69cc7c916831c092bb69ac1aa685c692ae6eb819a9599cbe0c4ecfd5269c145691a15b86d0a25b27d854d6116bbc0851a3373c0a86edb96f1602
+  languageName: node
+  linkType: hard
+
+"zustand@npm:^5.0.3":
+  version: 5.0.3
+  resolution: "zustand@npm:5.0.3"
+  peerDependencies:
+    "@types/react": ">=18.0.0"
+    immer: ">=9.0.6"
+    react: ">=18.0.0"
+    use-sync-external-store: ">=1.2.0"
+  peerDependenciesMeta:
+    "@types/react":
+      optional: true
+    immer:
+      optional: true
+    react:
+      optional: true
+    use-sync-external-store:
+      optional: true
+  checksum: 10c0/dad96c6c123fda088c583d5df6692e9245cd207583078dc15f93d255a67b0f346bad4535545c98852ecde93d254812a0c799579dfde2ab595016b99fbe20e4d5
   languageName: node
   linkType: hard

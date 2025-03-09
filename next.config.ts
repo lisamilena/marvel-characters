@@ -16,6 +16,7 @@ const nextConfig: NextConfig = {
         search: '',
       },
     ],
+    disableStaticImages: true,
   },
 };
 
