@@ -1,0 +1,41 @@
+.comicsList {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 48px 0;
+  width: 100%;
+}
+.comicsList h3 {
+  padding: 0 16px;
+  font-size: 24px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.comicsList ul {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  scrollbar-width: thin;
+}
+.comicsList ul li {
+  flex: 0 0 auto;
+  width: 180px;
+  height: 340px;
+  background: gray;
+  border-radius: 8px;
+}
+
+@media (width >= 40rem) {
+  .comicsList h3 {
+    padding: 0 48px;
+  }
+}
+@media (width >= 64rem) {
+  .comicsList {
+    max-width: 960px;
+    margin: 0 auto;
+  }
+  .comicsList h3 {
+    font-size: 32px;
+  }
+}

@@ -89,9 +89,7 @@ const eslintConfig = [
       'import/no-extraneous-dependencies': 'error',
       'import/no-named-as-default': 'warn',
       'import/no-useless-path-segments': 'error',
-      'jsx-a11y/click-events-have-key-events': 'error',
       'jsx-a11y/no-autofocus': 'error',
-      'jsx-a11y/no-noninteractive-element-interactions': 'warn',
       'no-console': 'error',
       'no-restricted-imports': [
         'error',

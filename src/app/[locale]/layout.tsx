@@ -28,7 +28,9 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
   return (
     <NextIntlClientProvider messages={messages}>
       <Header />
-      <AppProviders locale={locale}>{children}</AppProviders>
+      <main className="min-h-[calc(100vh_-_90px)]">
+        <AppProviders locale={locale}>{children}</AppProviders>
+      </main>
       <Footer />
     </NextIntlClientProvider>
   );

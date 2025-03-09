@@ -1,0 +1,17 @@
+.searchWrapper {
+  padding: 12px 0;
+}
+.search {
+  display: flex;
+  gap: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid;
+  margin-bottom: 12px;
+}
+.searchInput {
+  width: 100%;
+  text-transform: uppercase;
+}
+.searchInput:focus {
+  outline: none;
+}

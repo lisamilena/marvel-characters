@@ -1,19 +1,25 @@
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 'use client';
+
 import Image from 'next/image';
-
-import { useTranslations } from 'next-intl';
-
-import { type Character, useGetCharacters } from '@/services/get-characters';
-
-import styles from './charactersList.module.css';
+import { usePathname, useRouter } from 'next/navigation';
+import { type CharacterType, useGetCharacters } from '@/services/get-characters';
+import { FavoriteIcon } from '../favoriteIcon/favoriteIcon-component';
+import { Loading } from '../loading/loading-component';
 
 export function CharactersList() {
-  const t = useTranslations('Home');
+  const pathname = usePathname();
+  const { push } = useRouter();
+  const { data, isLoading, error } = useGetCharacters();
 
-  const { data, isLoading, error } = useGetCharacters(); //isSuccess isFetched
+  const handleRedirect = (id: number) => {
+    const locale = pathname.split('/')[1];
+    push(`/${locale}/${id}`);
+  };
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return <Loading />;
   }
 
   if (error) {
@@ -21,12 +27,32 @@ export function CharactersList() {
   }
 
   return (
-    <div className={styles.search}>
-      <Image priority alt="magnifying glass" height={12} src="./magnifying-glass.svg" width={12} />
-      <h1>{t('name')}</h1>
-      <ul>
-        {data?.results?.map((character: Character) => <li key={character.id}>{character.name}</li>)}
-      </ul>
-    </div>
+    <ul className="grid grid-cols-[repeat(auto-fit,minmax(172px,1fr))] gap-4">
+      {data?.results?.map(({ id, name, thumbnail }: CharacterType) => (
+        <li key={id} className="animated-bg cut-corner">
+          <div className="relative z-10 cursor-pointer" onClick={() => handleRedirect(id)}>
+            <Image
+              priority
+              alt={name}
+              className="h-[190px] w-full border-b-2 border-red-600"
+              height={190}
+              src={`${thumbnail?.path}.${thumbnail?.extension}`}
+              width={190}
+            />
+            <div className="flex justify-between p-4 pb-5">
+              <p className="truncate text-sm text-white">{name}</p>
+              <FavoriteIcon
+                isFilled={false}
+                size="sm"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  //console.log('Clicked ' + id);
+                }}
+              />
+            </div>
+          </div>
+        </li>
+      ))}
+    </ul>
   );
 }

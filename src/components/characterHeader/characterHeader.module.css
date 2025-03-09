@@ -1,0 +1,45 @@
+.characterHeader {
+  background-color: #000;
+  clip-path: polygon(0% 0%, 100% 0%, 100% calc(100% - 24px), calc(100% - 24px) 100%, 0 100%);
+}
+.headerWrapper {
+  display: flex;
+  flex-direction: column;
+  max-width: 960px;
+  margin: 0 auto;
+}
+.detailImage {
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+}
+.headerDetails {
+  color: #fff;
+  width: 100%;
+  padding: 24px 16px 48px 16px;
+}
+.headerDetails h2 {
+  font-size: 32px;
+  font-weight: 700;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: space-between;
+  gap: 4px;
+}
+
+@media (width >= 40rem) {
+  .headerWrapper {
+    flex-direction: row;
+  }
+  .detailImage {
+    width: auto;
+  }
+  .headerDetails {
+    padding: 48px 24px;
+  }
+}
+@media (width >= 64rem) {
+  .headerDetails {
+    padding: 48px 0 48px 48px;
+  }
+}

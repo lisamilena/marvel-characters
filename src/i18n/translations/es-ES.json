@@ -12,7 +12,6 @@
   "Home": {
     "search": "Buscar un personaje",
     "results": "{value, plural, one {1 resultado} other {# resultados}}",
-    "name": "Nombre",
     "favorites": "Favoritos"
   },
   "Detail": {
