@@ -7,7 +7,9 @@ import '@/styles/globals.css';
 import { GlobalLoader } from '@/components/loading/globalLoading-component';
 
 const font = Roboto_Condensed({
-  weight: ['400'],
+  subsets: ['latin'],
+  weight: ['400', '700'],
+  display: 'swap',
 });
 
 type RootLayoutProps = {

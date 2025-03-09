@@ -18,7 +18,7 @@ module.exports = {
 
         return [
           false,
-          `Provided scope ("${scope}") does not match the ticket format! (example: XYZ-1234)`,
+          `Provided scope (${scope}) does not match the ticket format! (example: XYZ-1234)`,
         ];
       },
     ],
