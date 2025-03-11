@@ -13,7 +13,10 @@ export function Loading({
   className?: string;
 }) {
   return (
-    <div className={clsx('flex items-center justify-center py-4', className)}>
+    <div
+      className={clsx('flex items-center justify-center py-4', className)}
+      data-testid="loading-component"
+    >
       <div
         className={clsx(
           'h-12 w-12 animate-spin rounded-full border-4 border-b-transparent border-l-transparent',

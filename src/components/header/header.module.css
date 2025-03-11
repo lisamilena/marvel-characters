@@ -8,6 +8,7 @@
 .logo {
   background-color: #ec1d24;
   border: solid 4px;
+  cursor: pointer;
 }
 
 @media (width >= 40rem) {

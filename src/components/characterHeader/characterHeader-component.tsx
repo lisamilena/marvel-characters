@@ -29,6 +29,7 @@ export function CharacterHeader({ id }: { id: number }) {
               alt={data.name}
               className={styles.detailImage}
               height={278}
+              quality={85}
               src={`${data.thumbnail?.path}.${data.thumbnail?.extension}`}
               width={278}
             />

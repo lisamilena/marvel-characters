@@ -7,7 +7,7 @@ import {
   getAuthParams,
 } from './utils';
 
-const LIMIT_SEARCH = 30;
+const LIMIT_SEARCH = 20;
 
 type ErrorCharacterType = {
   code: string;

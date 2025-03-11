@@ -1,7 +1,7 @@
 import { dehydrate, HydrationBoundary, QueryClient } from '@tanstack/react-query';
 
 import { getCharacters } from '@/services/get-characters';
-import { ListSearcher } from '@/components/list/listSearcher-component';
+import { ListSearcher } from '@/components/charactersList/listSearcher-component';
 
 export default async function Home() {
   const queryClient = new QueryClient();

@@ -25,7 +25,8 @@ export function FavoriteIcon({
       className={twMerge(
         'group mask mask-image transition-colors',
         isFilled ? HEART_ICON.full : HEART_ICON.empty,
-        ICON_SIZES[size]
+        ICON_SIZES[size],
+        onClick && 'cursor-pointer'
       )}
       onClick={onClick}
     />

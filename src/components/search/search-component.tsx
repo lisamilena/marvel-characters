@@ -6,7 +6,7 @@ import { useTranslations } from 'next-intl';
 
 import styles from './search.module.css';
 
-const DEBOUNCE_TIME = 1500;
+const DEBOUNCE_TIME = 1000;
 
 export function Search({
   value = '',

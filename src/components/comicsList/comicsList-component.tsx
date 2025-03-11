@@ -6,6 +6,8 @@ import { useGetCharacter } from '@/services/get-character-detail';
 import { Loading } from '../loading/loading-component';
 import styles from './comicsList.module.css';
 
+const IMAGE_QUALITY = process.env.NEXT_PUBLIC_IMAGE_QUALITY || 90;
+
 export function ComicsList({ id }: { id: string }) {
   const t = useTranslations('Detail');
   const [, { data, isLoading }] = useGetCharacter(parseInt(id));
@@ -22,6 +24,7 @@ export function ComicsList({ id }: { id: string }) {
               <Image
                 alt={comic.title}
                 height={268}
+                quality={IMAGE_QUALITY as number}
                 src={`${comic.thumbnail?.path}.${comic.thumbnail?.extension}`}
                 width={179}
               />

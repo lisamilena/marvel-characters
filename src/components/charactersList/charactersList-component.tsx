@@ -8,6 +8,8 @@ import { type CharacterType } from '@/services/utils';
 import { FavoriteIcon } from '../favoriteIcon/favoriteIcon-component';
 import { Loading } from '../loading/loading-component';
 
+const IMAGE_QUALITY = process.env.NEXT_PUBLIC_IMAGE_QUALITY || 90;
+
 export function CharactersList({ data, isLoading }: { data: CharacterType[]; isLoading: boolean }) {
   const pathname = usePathname();
   const { characters, addCharacter, removeCharacter } = useStoreFavorites();
@@ -26,9 +28,11 @@ export function CharactersList({ data, isLoading }: { data: CharacterType[]; isL
           <li key={id} className="animated-bg cut-corner max-w-[210px]">
             <Link className="relative z-10" href={`/${locale}/${id}`}>
               <Image
+                priority
                 alt={name}
                 className="h-[190px] w-full border-b-2 border-red-600"
                 height={190}
+                quality={IMAGE_QUALITY as number}
                 src={`${thumbnail?.path}.${thumbnail?.extension}`}
                 width={190}
               />

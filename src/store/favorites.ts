@@ -7,7 +7,7 @@ type StoreFavorites = {
   addCharacter: (newCharacter: CharacterType) => void;
   removeCharacter: (id: number) => void;
   showFavorites: boolean;
-  toggleShowFavorites: () => void;
+  updateShowFavorites: (show: boolean) => void;
 };
 
 export const useStoreFavorites = create(
@@ -21,7 +21,7 @@ export const useStoreFavorites = create(
           characters: characters.filter((character) => character.id !== id),
         })),
       showFavorites: false,
-      toggleShowFavorites: () => set(({ showFavorites }) => ({ showFavorites: !showFavorites })),
+      updateShowFavorites: (show) => set(() => ({ showFavorites: show })),
     }),
     {
       name: 'favorites-state',

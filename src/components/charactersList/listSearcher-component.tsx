@@ -21,7 +21,7 @@ export function ListSearcher() {
   return (
     <>
       <Search
-        results={showFavorites ? filteredFavorites.length : data?.results?.length}
+        results={showFavorites ? filteredFavorites.length : data?.total}
         value={query}
         onFilter={(value) => setQuery(value)}
       />
