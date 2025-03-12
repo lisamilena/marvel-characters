@@ -21,13 +21,15 @@ export function ComicsList({ id }: { id: string }) {
         <ul>
           {data?.map((comic) => (
             <li key={comic.resourceURI}>
-              <Image
-                alt={comic.title}
-                height={268}
-                quality={IMAGE_QUALITY as number}
-                src={`${comic.thumbnail?.path}.${comic.thumbnail?.extension}`}
-                width={179}
-              />
+              <div className={styles.imageContainer}>
+                <Image
+                  alt={comic.title}
+                  height={268}
+                  quality={IMAGE_QUALITY as number}
+                  src={`${comic.thumbnail?.path}.${comic.thumbnail?.extension}`}
+                  width={179}
+                />
+              </div>
               <div className={styles.name}>
                 <span>{comic.title}</span>
                 <span>{comic.dates[0].date?.split('-')?.[0]}</span>

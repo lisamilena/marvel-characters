@@ -21,7 +21,7 @@ export function CharactersList({ data, isLoading }: { data: CharacterType[]; isL
   }
 
   return (
-    <ul className="grid grid-cols-[repeat(auto-fit,minmax(172px,1fr))] gap-4">
+    <ul className="grid grid-cols-[repeat(auto-fit,minmax(140px,1fr))] gap-4 md:grid-cols-[repeat(auto-fit,minmax(172px,1fr))]">
       {data?.map(({ id, name, thumbnail, ...character }) => {
         const isFavorite = characters?.some((item) => item.id === id);
         return (

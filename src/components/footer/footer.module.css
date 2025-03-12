@@ -1,13 +1,18 @@
 .footer {
   display: flex;
+  gap: 16px;
   justify-content: space-between;
   align-items: center;
-  padding: 16px 48px;
+  padding: 16px;
   background-color: #000;
+}
+.footer div {
+  font-size: 12px;
+  color: white;
 }
 
 @media (width >= 40rem) {
   .footer {
-    padding: 16px;
+    padding: 16px 48px;
   }
 }

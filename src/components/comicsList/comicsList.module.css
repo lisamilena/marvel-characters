@@ -10,6 +10,7 @@
   font-weight: 700;
   text-transform: uppercase;
   width: 100%;
+  padding: 16px;
 }
 .comicsList ul {
   display: flex;
@@ -17,7 +18,6 @@
   overflow-x: auto;
   padding-bottom: 16px;
 }
-.comicsList h3,
 .comicsList ul {
   margin: 0 16px;
 }
@@ -36,6 +36,15 @@
 .comicsList ul li {
   flex: 0 0 auto;
   width: 180px;
+}
+.imageContainer {
+  aspect-ratio: 2 / 3;
+  width: 100%;
+}
+.imageContainer img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
 }
 .name {
   display: flex;
@@ -67,6 +76,8 @@
   .comicsList h3,
   .comicsList ul {
     margin: 0 48px;
+    padding-left: 0;
+    padding-right: 0;
   }
   .name span:nth-child(2) {
     font-size: 11px;
